@@ -1,0 +1,64 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="checkIn">check In (YYYY-MM-DD)</label>
+            <input
+              class="form-control"
+              id="checkIn"
+              required
+              placeholder="YYYY-MM-DD"
+              pattern="\d{4}-\d{2}-\d{2}"
+              [(ngModel)]="reservation.checkIn"
+              name="checkIn"
+            />
+            <small class="form-text text-muted">Enter date in format YYYY-MM-DD</small>
+          </div>
+
+          <div class="form-group">
+            <label for="checkOut">check Out (YYYY-MM-DD)</label>
+            <input
+              class="form-control"
+              id="checkOut"
+              required
+              placeholder="YYYY-MM-DD"
+              pattern="\d{4}-\d{2}-\d{2}"
+              [(ngModel)]="reservation.checkOut"
+              name="checkOut"
+            />
+            <small class="form-text text-muted">Enter date in format YYYY-MM-DD</small>
+          </div>
+          <div class="form-group">
+            <label for="valid">Valid (true/false)</label>
+            <input
+              class="form-control"
+              id="valid"
+              required
+              placeholder="true/false"
+              pattern="true|false"
+              [(ngModel)]="reservation.valid"
+              name="valid"
+            />
+            <small class="form-text text-muted">Enter true/false for event status</small>
+          </div>
+
+          <div class="form-group">
+            <label for="typeReservation">Reservation Type</label>
+            <select class="form-control" id="typeReservation" required [(ngModel)]="reservation.typeReservation" name="typeReservation">
+              <option value="" disabled selected>Select Reservation Type</option>
+              <option value="Room">Room</option>
+              <option value="Event">Event</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+  
+  
+        <button (click)="saveReservation()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Reservation was submitted successfully!</h4>
+      </div>
+    </div>
+  </div>
+  

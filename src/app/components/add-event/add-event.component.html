@@ -1,0 +1,94 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="title">Event Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="event.eventName"
+            name="title"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="event.description"
+            name="description"
+          />
+        </div>
+        <div class="form-group">
+            <label for="date">Date (YYYY-MM-DD)</label>
+            <input
+              class="form-control"
+              id="date"
+              required
+              placeholder="YYYY-MM-DD"
+              pattern="\d{4}-\d{2}-\d{2}"
+              [(ngModel)]="event.date"
+              name="date"
+            />
+            <small class="form-text text-muted">Enter date in format YYYY-MM-DD</small>
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <input
+              class="form-control"
+              id="time"
+              required
+              placeholder="HH:MM"
+              pattern="\d{2}:\d{2}"
+              [(ngModel)]="event.time"
+              name="time"
+            />
+            <small class="form-text text-muted">Enter time in format HH:MM</small>
+          </div>
+          <div class="form-group">
+            <label for="eventStatus">Event Status (true/false)</label>
+            <input
+              class="form-control"
+              id="eventStatus"
+              required
+              placeholder="true/false"
+              pattern="true|false"
+              [(ngModel)]="event.eventStatus"
+              name="eventStatus"
+            />
+            <small class="form-text text-muted">Enter true/false for event status</small>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              class="form-control"
+              id="location"
+              required
+              [(ngModel)]="event.location"
+              name="location"
+            />
+          </div>
+          <div class="form-group">
+            <label for="eventType">Event Type</label>
+            <select class="form-control" id="eventType" required [(ngModel)]="event.eventType" name="eventType">
+              <option value="" disabled selected>Select Event Type</option>
+              <option value="voyage">voyage</option>
+              <option value="Circuit_touristique">Circuit_touristique</option>
+              <option value="Camping_sauvage">Camping_sauvage</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+  
+        <button (click)="saveEvent()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Event was submitted successfully!</h4>
+      </div>
+    </div>
+  </div>
+  

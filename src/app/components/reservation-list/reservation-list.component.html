@@ -1,0 +1,12 @@
+<h4>Reservations List</h4>
+<ul class="list-group">
+  <li *ngFor="let reservation of reservations; let i = index" class="list-group-item d-flex justify-content-between align-items-center mb-2" [class.active]="i == currentIndex">
+    <div>
+      <h5>{{ reservation.numRes }}</h5>
+      <p>{{ reservation.numRes }}</p>
+    </div>
+    <div>
+      <button (click)="deleteReservation(reservation.numRes)" class="btn btn-danger btn-sm">Delete</button>
+    </div>
+  </li>
+</ul>
